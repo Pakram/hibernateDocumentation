@@ -3,6 +3,7 @@ import java.util.Date;
 /**
  * Created by Pokramovich on 22.07.2016.
  */
+
 public class Event {
     private Long id;
     private String title;
