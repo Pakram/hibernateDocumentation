@@ -376,7 +376,7 @@ captures/
 *.jks
 domain/src/main/resources/
 domain/src/test/
-src/
+
 web/src/main/resources/
 web/src/test/
 /.idea/vcs.xml
