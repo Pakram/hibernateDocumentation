@@ -4,6 +4,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by Pokramovich on 22.07.2016.
@@ -20,6 +21,16 @@ public class Event {
     @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "events")
+    private Set<Person> persons;
+
+    public Event(String title, Date date) {
+        this.title = title;
+        this.date = date;
+    }
+
+    public Event() {
+    }
 
     public Long getId() {
         return id;
@@ -45,6 +56,14 @@ public class Event {
         this.date = date;
     }
 
+    public Set<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(Set<Person> persons) {
+        this.persons = persons;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -67,14 +86,13 @@ public class Event {
     }
 
 
-
-
     @Override
     public String toString() {
         return "Event{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", date=" + date +
+                ", persons=" + persons +
                 '}';
     }
 }
