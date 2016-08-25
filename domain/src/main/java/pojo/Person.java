@@ -20,14 +20,6 @@ public class Person {
     private String lastName;
     @Column(name = "age")
     private Integer age;
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "person_events", joinColumns = {
-            @JoinColumn(name = "personId", nullable = false, updatable = false)
-    }, inverseJoinColumns = {@JoinColumn(name = "eventId", nullable = false, updatable = false)})
-    private Set<Event> events;
-    @ElementCollection
-    @JoinTable(name = "PERSON_ADDRESS",joinColumns ={@JoinColumn(name = "id",nullable = false,updatable = false)})
-    private Set<String> emails = new HashSet<>();
 
     public Person(String firstName, String lastName, Integer age) {
         this.firstName = firstName;
@@ -38,13 +30,6 @@ public class Person {
     public Person() {
     }
 
-    public Set<String> getEmails() {
-        return emails;
-    }
-
-    public void setEmails(Set<String> emails) {
-        this.emails = emails;
-    }
 
     public Long getId() {
         return id;
@@ -78,13 +63,7 @@ public class Person {
         this.age = age;
     }
 
-    public Set<Event> getEvents() {
-        return events;
-    }
 
-    public void setEvents(Set<Event> events) {
-        this.events = events;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -116,8 +95,6 @@ public class Person {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
-                ", events=" + events +
-                ", emails=" + emails +
                 '}';
     }
 }
