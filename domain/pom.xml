@@ -4,17 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>PokramovichEE</artifactId>
-        <groupId>com.pokramovich</groupId>
+        <groupId>pokramovich</groupId>
         <version>1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>domain</artifactId>
+
     <version>1</version>
     <name>modelPortal</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>pokramovich</groupId>
+            <artifactId>dao</artifactId>
+            <version>1</version>
+        </dependency>
+    </dependencies>
 
 </project>
